@@ -1,0 +1,154 @@
+{
+    "bottles": [
+        {
+            "id": 1,
+            "name": "Château Margaux",
+            "type": "Red",
+            "year": 2015,
+            "region": "Bordeaux, France",
+            "price": 850.00,
+            "description": "A prestigious Premier Cru Classé wine with complex aromas of black fruits and spices.",
+            "image": "assets/images/chateau_margaux_2015.jpg"
+        },
+        {
+            "id": 2,
+            "name": "Dom Pérignon",
+            "type": "Champagne",
+            "year": 2012,
+            "region": "Champagne, France",
+            "price": 180.00,
+            "description": "A vintage champagne known for its fine bubbles and elegant taste.",
+            "image": "assets/images/dom_perignon_2012.jpg"
+        },
+        {
+            "id": 3,
+            "name": "Opus One",
+            "type": "Red",
+            "year": 2018,
+            "region": "Napa Valley, USA",
+            "price": 350.00,
+            "description": "A Bordeaux-style blend with rich flavors of dark fruits and chocolate.",
+            "image": "assets/images/opus_one_2018.jpg"
+        },
+        {
+            "id": 4,
+            "name": "Château d'Yquem",
+            "type": "White",
+            "year": 2015,
+            "region": "Bordeaux, France",
+            "price": 400.00,
+            "description": "A legendary sweet wine with notes of honey, apricot, and tropical fruits.",
+            "image": "assets/images/chateau_dyquem_2015.jpg"
+        },
+        {
+            "id": 5,
+            "name": "Barolo Monfortino",
+            "type": "Red",
+            "year": 2016,
+            "region": "Piedmont, Italy",
+            "price": 600.00,
+            "description": "A powerful and complex Barolo with intense aromas of roses and tar.",
+            "image": "assets/images/barolo_monfortino_2016.jpg"
+        },
+        {
+            "id": 6,
+            "name": "Screaming Eagle",
+            "type": "Red",
+            "year": 2019,
+            "region": "Napa Valley, USA",
+            "price": 3500.00,
+            "description": "One of California's most sought-after Cabernet Sauvignons with intense black fruit and mineral notes.",
+            "image": "assets/images/screaming_eagle_2019.jpg"
+        },
+        {
+            "id": 7,
+            "name": "Romanée-Conti",
+            "type": "Red",
+            "year": 2018,
+            "region": "Burgundy, France",
+            "price": 15000.00,
+            "description": "The most prestigious Pinot Noir in the world, known for its ethereal complexity and aging potential.",
+            "image": "assets/images/romanee_conti_2018.jpg"
+        },
+        {
+            "id": 8,
+            "name": "Vega Sicilia Unico",
+            "type": "Red",
+            "year": 2012,
+            "region": "Ribera del Duero, Spain",
+            "price": 450.00,
+            "description": "Spain's most iconic wine, a powerful Tempranillo with exceptional aging potential.",
+            "image": "assets/images/vega_sicilia_unico_2012.jpg"
+        },
+        {
+            "id": 9,
+            "name": "Krug Clos du Mesnil",
+            "type": "Champagne",
+            "year": 2008,
+            "region": "Champagne, France",
+            "price": 1200.00,
+            "description": "A single-vineyard blanc de blancs champagne of extraordinary finesse and complexity.",
+            "image": "assets/images/krug_clos_du_mesnil_2008.jpg"
+        },
+        {
+            "id": 10,
+            "name": "Penfolds Grange",
+            "type": "Red",
+            "year": 2017,
+            "region": "South Australia",
+            "price": 850.00,
+            "description": "Australia's most famous wine, a Shiraz-based blend with incredible power and longevity.",
+            "image": "assets/images/penfolds_grange_2017.jpg"
+        },
+        {
+            "id": 11,
+            "name": "Masseto",
+            "type": "Red",
+            "year": 2018,
+            "region": "Tuscany, Italy",
+            "price": 900.00,
+            "description": "A pure Merlot that rivals the best of Pomerol, with rich dark fruit and velvety texture.",
+            "image": "assets/images/masseto_2018.jpg"
+        },
+        {
+            "id": 12,
+            "name": "Château Lafite Rothschild",
+            "type": "Red",
+            "year": 2016,
+            "region": "Bordeaux, France",
+            "price": 1200.00,
+            "description": "A First Growth Bordeaux known for its elegance and finesse, with notes of cedar and blackcurrant.",
+            "image": "assets/images/lafite_rothschild_2016.jpg"
+        },
+        {
+            "id": 13,
+            "name": "Egon Müller Scharzhofberger",
+            "type": "White",
+            "year": 2019,
+            "region": "Mosel, Germany",
+            "price": 300.00,
+            "description": "A legendary Riesling with perfect balance of sweetness and acidity.",
+            "image": "assets/images/egon_muller_2019.jpg"
+        },
+        {
+            "id": 14,
+            "name": "Quilceda Creek",
+            "type": "Red",
+            "year": 2018,
+            "region": "Washington, USA",
+            "price": 200.00,
+            "description": "A powerful Cabernet Sauvignon with rich dark fruit and chocolate notes.",
+            "image": "assets/images/quilceda_creek_2018.jpg"
+        },
+        {
+            "id": 15,
+            "name": "Château Rayas",
+            "type": "Red",
+            "year": 2019,
+            "region": "Châteauneuf-du-Pape, France",
+            "price": 600.00,
+            "description": "A unique Grenache-based wine with extraordinary finesse and complexity.",
+            "image": "assets/images/chateau_rayas_2019.jpg"
+        }
+    ]
+}

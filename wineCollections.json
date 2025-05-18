@@ -1,0 +1,605 @@
+{
+    "wineCollections": [
+        {
+            "title": "Terroir Wine Bar",
+            "description": "Hip spot offering natural wines & small.",
+            "image": "images/Terroir Wine Bar.jpeg",
+            "rating": 4.8,
+            "reviews": 347,
+            "wineList": [
+                {
+                    "name": "Calcarius Bianco",
+                    "desc": "Natural 2020, Val. Passalaqua",
+                    "price": 2432
+                },
+                {
+                    "name": "Light my fire",
+                    "desc": "Red 2021, Trossen",
+                    "price": 2438
+                },
+                {
+                    "name": "Petillant Originel",
+                    "desc": "Pet-nat 2020, La Grande Tiphaine",
+                    "price": 2432
+                }
+            ],
+            "address": "24 Harrison ST",
+            "city": "New York, NY",
+            "phone": "(212) 625-9563",
+            "website": "winebar.com"
+        },
+        {
+            "title": "Cozy natural wine",
+            "description": "Discover hidden gems for natural wine lovers.",
+            "image": "images/Cozy natural wine.jpeg",
+            "rating": 4.6,
+            "reviews": 215,
+            "wineList": [
+                {
+                    "name": "Orange Dream",
+                    "desc": "Orange 2021, Small Batch",
+                    "price": 2512
+                },
+                {
+                    "name": "Pinot Noir",
+                    "desc": "Red 2020, Domaine Naturel",
+                    "price": 2599
+                },
+                {
+                    "name": "Cozy White",
+                    "desc": "White 2022, Cozy Lane Estate",
+                    "price": 2544
+                }
+            ],
+            "address": "12 Cozy Lane",
+            "city": "Paris, France",
+            "phone": "+33 1 23 45 67 89",
+            "website": "cozynaturalwine.fr"
+        },
+        {
+            "title": "Milan: Essential Natural Wine Experiences",
+            "description": "Experience Milan's best locations for natural wine tasting.",
+            "image": "images/Milan- Essential Natural Wine Experiences.jpeg",
+            "rating": 4.7,
+            "reviews": 289,
+            "wineList": [
+                {
+                    "name": "Champagne Socialist Special",
+                    "desc": "Sparkling 2021, Local Producer",
+                    "price": 2675,
+                    "image": "images/Champagne Socialist.webp"
+                },
+                {
+                    "name": "Vinoir Selection",
+                    "desc": "Red Blend 2020, Milan Region",
+                    "price": 2632,
+                    "image": "images/Vinoir Selection.webp"
+                },
+                {
+                    "name": "Enoteca Naturale",
+                    "desc": "White 2022, Lombardy",
+                    "price": 2690,
+                    "image": "images/Enoteca Naturale.webp"
+                }
+            ],
+            "address": "Via Milano 15",
+            "city": "Milan, Italy",
+            "phone": "+39 02 1234 5678",
+            "website": "milanwineexperience.it"
+        },
+        {
+            "title": "Berlin's Natural Wine Hidden Gems",
+            "description": "Find hidden gems and enjoy Berlin's best natural wine bars.",
+            "image": "images/Berlin's Natural Wine Hidden Gems.jpg",
+            "rating": 4.5,
+            "reviews": 312,
+            "wineList": [
+                {
+                    "name": "Jaja Special Blend",
+                    "desc": "Natural Red 2021, German Producer",
+                    "price": 2321
+                },
+                {
+                    "name": "Rocket Wine Selection",
+                    "desc": "Orange Wine 2020, Local Winery",
+                    "price": 2398
+                },
+                {
+                    "name": "Motif Classic",
+                    "desc": "White 2022, Berlin Estate",
+                    "price": 2345
+                }
+            ],
+            "address": "Kreuzberg Str. 42",
+            "city": "Berlin, Germany",
+            "phone": "+49 30 1234 5678",
+            "website": "berlinwinegems.de"
+        },
+        {
+            "title": "Best Natural Wine Bars in Barcelona",
+            "description": "Explore vibrant bars serving natural wines in Barcelona.",
+            "image": "images/Best Natural Wine Bars in Barcelona.webp",
+            "rating": 4.9,
+            "reviews": 423,
+            "wineList": [
+                {
+                    "name": "Bar Brutal Special",
+                    "desc": "Natural White 2021, Catalan Producer",
+                    "price": 2781
+                },
+                {
+                    "name": "L'Anima del Vi Selection",
+                    "desc": "Red Blend 2020, Spanish Winery",
+                    "price": 2742
+                },
+                {
+                    "name": "Garage Bar Rosé",
+                    "desc": "Rosé 2022, Barcelona",
+                    "price": 2733
+                }
+            ],
+            "address": "Carrer de la Princesa 14",
+            "city": "Barcelona, Spain",
+            "phone": "+34 93 1234 567",
+            "website": "barcelonawinebars.es"
+        },
+        {
+            "title": "Top Orange Wine Spots in Paris",
+            "description": "Enjoy the finest orange wine selections Paris has to offer.",
+            "image": "images/Top Orange Wine Spots in Paris.webp",
+            "rating": 4.8,
+            "reviews": 356,
+            "wineList": [
+                {
+                    "name": "Septime La Cave Special",
+                    "desc": "Orange Wine 2021, French Producer",
+                    "price": 2611
+                },
+                {
+                    "name": "Le Grand Bain Selection",
+                    "desc": "Natural Orange 2020, Local Winery",
+                    "price": 2644
+                },
+                {
+                    "name": "Chambre Noire",
+                    "desc": "Orange 2022, Paris",
+                    "price": 2622
+                }
+            ],
+            "address": "Rue de Charonne 128",
+            "city": "Paris, France",
+            "phone": "+33 1 23 45 67 89",
+            "website": "parisorangewine.fr"
+        },
+        {
+            "title": "Biodynamic Wine Restaurants in New York",
+            "description": "Savor exquisite biodynamic wines paired with exceptional food.",
+            "image": "images/Biodynamic Wine Restaurants in New York.jpg",
+            "rating": 4.7,
+            "reviews": 398,
+            "wineList": [
+                {
+                    "name": "Four Horsemen Special",
+                    "desc": "Biodynamic Red 2021, NY Producer",
+                    "price": 2555
+                },
+                {
+                    "name": "Racines Selection",
+                    "desc": "Natural White 2020, Local Winery",
+                    "price": 2591
+                },
+                {
+                    "name": "Wildair Blend",
+                    "desc": "Red Blend 2022, NY",
+                    "price": 2577
+                }
+            ],
+            "address": "295 Grand Street",
+            "city": "New York, NY",
+            "phone": "(212) 123-4567",
+            "website": "nybiodynamicwine.com"
+        },
+        {
+            "title": "Pet-Nat Paradise in Copenhagen",
+            "description": "Visit Copenhagen's top spots for petillant naturel wines.",
+            "image": "images/Pet-Nat Paradise in Copenhagen.jpeg",
+            "rating": 4.6,
+            "reviews": 267,
+            "wineList": [
+                {
+                    "name": "Ved Stranden Special",
+                    "desc": "Pet-Nat 2021, Danish Producer",
+                    "price": 2488
+                },
+                {
+                    "name": "Ancestrale Selection",
+                    "desc": "Natural Sparkling 2020, Local Winery",
+                    "price": 2466
+                },
+                {
+                    "name": "Barabba Rosé",
+                    "desc": "Rosé 2022, Copenhagen",
+                    "price": 2499
+                }
+            ],
+            "address": "Ved Stranden 10",
+            "city": "Copenhagen, Denmark",
+            "phone": "+45 12 34 56 78",
+            "website": "copenhagenpetnat.dk"
+        },
+        {
+            "title": "London's Finest Natural Wine Cellars",
+            "description": "Discover London's premier natural wine cellars and wine bars.",
+            "image": "images/London's Finest Natural Wine Cellars.jpg",
+            "rating": 4.8,
+            "reviews": 412,
+            "wineList": [
+                {
+                    "name": "Noble Rot Special",
+                    "desc": "Natural Red 2021, UK Producer",
+                    "price": 2650
+                },
+                {
+                    "name": "40 Maltby Selection",
+                    "desc": "Orange Wine 2020, Local Winery",
+                    "price": 2682
+                },
+                {
+                    "name": "Antidote White",
+                    "desc": "White 2022, London",
+                    "price": 2671
+                }
+            ],
+            "address": "51 Lamb's Conduit Street",
+            "city": "London, UK",
+            "phone": "+44 20 1234 5678",
+            "website": "londonwinecellars.co.uk"
+        },
+        {
+            "title": "Amsterdam Wine Gems",
+            "description": "Amsterdam's best cellars curated for you.",
+            "image": "images/Amsterdam Wine Gems.jpg",
+            "rating": 4.5,
+            "reviews": 234,
+            "wineList": [
+                {
+                    "name": "GlouGlou Special",
+                    "desc": "Natural White 2021, Dutch Producer",
+                    "price": 2412
+                },
+                {
+                    "name": "Wijnbar Paulus Selection",
+                    "desc": "Red Blend 2020, Local Winery",
+                    "price": 2433
+                },
+                {
+                    "name": "Café de Klepel Rosé",
+                    "desc": "Rosé 2022, Amsterdam",
+                    "price": 2455
+                }
+            ],
+            "address": "Herengracht 123",
+            "city": "Amsterdam, Netherlands",
+            "phone": "+31 20 123 4567",
+            "website": "amsterdamwinegems.nl"
+        },
+        {
+            "title": "Vienna's Organic Wine Retreats",
+            "description": "Experience Vienna's top organic and natural wine bars.",
+            "image": "images/Vienna's Organic Wine Retreats.jpeg",
+            "rating": 4.7,
+            "reviews": 289,
+            "wineList": [
+                {
+                    "name": "Heunisch Special",
+                    "desc": "Organic Red 2021, Austrian Producer",
+                    "price": 2533
+                },
+                {
+                    "name": "Mast Selection",
+                    "desc": "Natural White 2020, Local Winery",
+                    "price": 2577
+                },
+                {
+                    "name": "Wein & Co Rosé",
+                    "desc": "Rosé 2022, Vienna",
+                    "price": 2555
+                }
+            ],
+            "address": "Kirchengasse 45",
+            "city": "Vienna, Austria",
+            "phone": "+43 1 234 5678",
+            "website": "viennawineretreats.at"
+        },
+        {
+            "title": "Lisbon's Coastal Wine Retreat",
+            "description": "Enjoy natural wines with stunning ocean views in Lisbon's trendiest bars.",
+            "image": "images/Lisbon Coastal Wine Retreat.jpg",
+            "rating": 4.9,
+            "reviews": 312,
+            "views": 1200,
+            "wineList": [
+                {
+                    "name": "Atlantic Breeze",
+                    "desc": "White 2022, Coastal Vineyards",
+                    "price": 2711
+                },
+                {
+                    "name": "Lisbon Sunset",
+                    "desc": "Rosé 2021, Oceanic Estate",
+                    "price": 2735
+                },
+                {
+                    "name": "Tejo Red",
+                    "desc": "Red 2020, Tejo Valley",
+                    "price": 2699
+                }
+            ],
+            "address": "Rua do Sol 45",
+            "city": "Lisbon, Portugal",
+            "phone": "+351 21 123 4567",
+            "website": "lisboncoastalwine.pt"
+        },
+        {
+            "title": "Santorini Cliffside Cellars",
+            "description": "Sip natural wines while overlooking the Aegean Sea from Santorini's iconic cliffs.",
+            "image": "images/Santorini Cliffside Cellars.jpg",
+            "rating": 4.8,
+            "reviews": 278,
+            "views": 980,
+            "wineList": [
+                {
+                    "name": "Volcanic White",
+                    "desc": "White 2022, Santorini",
+                    "price": 2850
+                },
+                {
+                    "name": "Aegean Rosé",
+                    "desc": "Rosé 2021, Island Blend",
+                    "price": 2822
+                },
+                {
+                    "name": "Caldera Red",
+                    "desc": "Red 2020, Caldera Vineyards",
+                    "price": 2888
+                }
+            ],
+            "address": "Oia Main Street",
+            "city": "Santorini, Greece",
+            "phone": "+30 2286 071234",
+            "website": "santorinicellars.gr"
+        },
+        {
+            "title": "Prague Riverside Wine House",
+            "description": "Historic wine house with river views and a curated natural wine selection.",
+            "image": "images/Prague Riverside Wine House.jpg",
+            "rating": 4.7,
+            "reviews": 201,
+            "views": 750,
+            "wineList": [
+                {
+                    "name": "Vltava White",
+                    "desc": "White 2021, Bohemian Estate",
+                    "price": 2580
+                },
+                {
+                    "name": "Old Town Red",
+                    "desc": "Red 2020, Prague Cellars",
+                    "price": 2612
+                },
+                {
+                    "name": "Charles Bridge Rosé",
+                    "desc": "Rosé 2022, Riverside Vineyards",
+                    "price": 2599
+                }
+            ],
+            "address": "Náplavka 12",
+            "city": "Prague, Czech Republic",
+            "phone": "+420 222 123 456",
+            "website": "pragueriversidewine.cz"
+        },
+        {
+            "title": "Tokyo Skyline Wine Lounge",
+            "description": "Modern lounge with panoramic city views and a focus on Japanese natural wines.",
+            "image": "images/Tokyo Skyline Wine Lounge.jpg",
+            "rating": 4.9,
+            "reviews": 334,
+            "views": 1500,
+            "wineList": [
+                {
+                    "name": "Mount Fuji White",
+                    "desc": "White 2022, Yamanashi",
+                    "price": 2999
+                },
+                {
+                    "name": "Tokyo Nights Red",
+                    "desc": "Red 2021, Urban Winery",
+                    "price": 2950
+                },
+                {
+                    "name": "Sakura Rosé",
+                    "desc": "Rosé 2022, Spring Blend",
+                    "price": 2922
+                }
+            ],
+            "address": "Shibuya Sky Tower, 30F",
+            "city": "Tokyo, Japan",
+            "phone": "+81 3-1234-5678",
+            "website": "tokyowinelounge.jp"
+        },
+        {
+            "title": "Cape Town Vineyard Views",
+            "description": "Experience South Africa's best natural wines with breathtaking vineyard views.",
+            "image": "images/Cape Town Vineyard Views.jpg",
+            "rating": 4.8,
+            "reviews": 256,
+            "views": 1100,
+            "wineList": [
+                {
+                    "name": "Table Mountain Chenin",
+                    "desc": "White 2021, Western Cape",
+                    "price": 2655
+                },
+                {
+                    "name": "Cape Red Blend",
+                    "desc": "Red 2020, Stellenbosch",
+                    "price": 2688
+                },
+                {
+                    "name": "Atlantic Breeze Rosé",
+                    "desc": "Rosé 2022, Coastal Vineyards",
+                    "price": 2644
+                }
+            ],
+            "address": "Vineyard Road 88",
+            "city": "Cape Town, South Africa",
+            "phone": "+27 21 123 4567",
+            "website": "capetownvineyardviews.co.za"
+        },
+        {
+            "title": "Sydney Harbour Wine Loft",
+            "description": "Chic loft bar with natural wines and spectacular views of Sydney Harbour.",
+            "image": "images/Sydney Harbour Wine Loft.jpg",
+            "rating": 4.7,
+            "reviews": 198,
+            "views": 900,
+            "wineList": [
+                {
+                    "name": "Harbour White",
+                    "desc": "White 2022, Hunter Valley",
+                    "price": 2777
+                },
+                {
+                    "name": "Opera House Red",
+                    "desc": "Red 2021, Barossa Valley",
+                    "price": 2799
+                },
+                {
+                    "name": "Bondi Rosé",
+                    "desc": "Rosé 2022, Coastal Blend",
+                    "price": 2755
+                }
+            ],
+            "address": "Loft 7, Circular Quay",
+            "city": "Sydney, Australia",
+            "phone": "+61 2 1234 5678",
+            "website": "sydneyharbourwineloft.com.au"
+        },
+        {
+            "title": "Buenos Aires Rooftop Wine Bar",
+            "description": "Trendy rooftop bar with city views and a curated selection of Argentine natural wines.",
+            "image": "images/Buenos Aires Rooftop Wine Bar.jpg",
+            "rating": 4.8,
+            "reviews": 221,
+            "views": 1050,
+            "wineList": [
+                {
+                    "name": "Malbec Sky",
+                    "desc": "Red 2021, Mendoza",
+                    "price": 2880
+                },
+                {
+                    "name": "Andes White",
+                    "desc": "White 2022, Uco Valley",
+                    "price": 2844
+                },
+                {
+                    "name": "Palermo Rosé",
+                    "desc": "Rosé 2022, Buenos Aires",
+                    "price": 2822
+                }
+            ],
+            "address": "Av. Corrientes 1234, Rooftop",
+            "city": "Buenos Aires, Argentina",
+            "phone": "+54 11 1234 5678",
+            "website": "buenosairesrooftopwine.com"
+        },
+        {
+            "title": "Seoul Rooftop Wine Garden",
+            "description": "A lush rooftop garden in Seoul offering natural wines and panoramic city views.",
+            "image": "images/Seoul Rooftop Wine Garden.jpg",
+            "rating": 4.8,
+            "reviews": 188,
+            "views": 870,
+            "wineList": [
+                {
+                    "name": "Han River White",
+                    "desc": "White 2022, Korean Vineyard",
+                    "price": 2760
+                },
+                {
+                    "name": "Gangnam Red",
+                    "desc": "Red 2021, Urban Blend",
+                    "price": 2795
+                },
+                {
+                    "name": "Seoul Blossom Rosé",
+                    "desc": "Rosé 2022, Spring Harvest",
+                    "price": 2733
+                }
+            ],
+            "address": "Rooftop 21, Itaewon",
+            "city": "Seoul, South Korea",
+            "phone": "+82 2-1234-5678",
+            "website": "seoulwinegarden.kr"
+        },
+        {
+            "title": "Zurich Lakeview Wine Bar",
+            "description": "Chic wine bar with a view of Lake Zurich and a curated natural wine list.",
+            "image": "images/Zurich Lakeview Wine Bar.jpg",
+            "rating": 4.7,
+            "reviews": 142,
+            "views": 690,
+            "wineList": [
+                {
+                    "name": "Alpine White",
+                    "desc": "White 2021, Swiss Alps",
+                    "price": 2811
+                },
+                {
+                    "name": "Zurich Pinot Noir",
+                    "desc": "Red 2020, Local Vineyard",
+                    "price": 2842
+                },
+                {
+                    "name": "Limmat Rosé",
+                    "desc": "Rosé 2022, Lake Zurich",
+                    "price": 2799
+                }
+            ],
+            "address": "Limmatquai 55",
+            "city": "Zurich, Switzerland",
+            "phone": "+41 44 123 4567",
+            "website": "zurichlakeviewwine.ch"
+        },
+        {
+            "title": "Montreal Old Port Wine Loft",
+            "description": "Trendy loft in Montreal's Old Port with exposed brick, city views, and natural wines.",
+            "image": "images/Montreal Old Port Wine Loft.jpg",
+            "rating": 4.9,
+            "reviews": 210,
+            "views": 940,
+            "wineList": [
+                {
+                    "name": "St. Lawrence White",
+                    "desc": "White 2022, Quebec Estate",
+                    "price": 2666
+                },
+                {
+                    "name": "Port Red Blend",
+                    "desc": "Red 2021, Canadian Blend",
+                    "price": 2699
+                },
+                {
+                    "name": "Maple Rosé",
+                    "desc": "Rosé 2022, Local Vineyard",
+                    "price": 2655
+                }
+            ],
+            "address": "Loft 9, Rue de la Commune",
+            "city": "Montreal, Canada",
+            "phone": "+1 514-123-4567",
+            "website": "montrealwineport.ca"
+        }
+    ]
+}
