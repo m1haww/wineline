@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:convert';
+import 'dart:io';
+import 'package:path_provider/path_provider.dart';
+import 'package:path/path.dart' as path;
 import '../models/wine_bottle.dart';
 
 class BottleProvider extends ChangeNotifier {
@@ -29,9 +32,33 @@ class BottleProvider extends ChangeNotifier {
     await prefs.setString('bottles', bottlesString);
   }
 
-  void addBottle(WineBottle bottle) {
-    _bottles.add(bottle);
-    _saveBottles();
+  Future<String> _saveImageToTemp(File imageFile) async {
+    final tempDir = await getTemporaryDirectory();
+    final fileName = 'bottle_${DateTime.now().millisecondsSinceEpoch}${path.extension(imageFile.path)}';
+    final savedImage = await imageFile.copy('${tempDir.path}/$fileName');
+    return savedImage.path;
+  }
+
+  Future<void> addBottle(WineBottle bottle, {File? imageFile}) async {
+    String imagePath = bottle.image;
+    if (imageFile != null) {
+      imagePath = await _saveImageToTemp(imageFile);
+    }
+    
+    final newBottle = WineBottle(
+      id: bottle.id,
+      name: bottle.name,
+      type: bottle.type,
+      year: bottle.year,
+      region: bottle.region,
+      price: bottle.price,
+      description: bottle.description,
+      image: imagePath,
+      isOwnBottle: true,
+    );
+    
+    _bottles.add(newBottle);
+    await _saveBottles();
     notifyListeners();
   }
 }

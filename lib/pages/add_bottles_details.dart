@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wineline/models/wine_bottle.dart';
+import 'dart:io';
 
 class AddBottlesDetails extends StatefulWidget {
   final WineBottle bottle;
@@ -26,27 +27,43 @@ class _AddBottlesDetailsState extends State<AddBottlesDetails> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            // Image
             ClipRRect(
               borderRadius: const BorderRadius.only(
                 bottomLeft: Radius.circular(32),
                 bottomRight: Radius.circular(32),
               ),
-              child: Image.asset(
-                bottle.image,
-                height: 240,
-                fit: BoxFit.cover,
-                errorBuilder:
-                    (context, error, stackTrace) => Container(
-                      height: 240,
-                      color: Colors.grey[300],
-                      child: const Icon(
-                        Icons.wine_bar,
-                        size: 80,
-                        color: Colors.white54,
+              child:
+                  bottle.isOwnBottle
+                      ? Image.file(
+                        File(bottle.image),
+                        height: 240,
+                        fit: BoxFit.cover,
+                        errorBuilder:
+                            (context, error, stackTrace) => Container(
+                              height: 240,
+                              color: Colors.grey[300],
+                              child: const Icon(
+                                Icons.wine_bar,
+                                size: 80,
+                                color: Colors.white54,
+                              ),
+                            ),
+                      )
+                      : Image.asset(
+                        bottle.image,
+                        height: 240,
+                        fit: BoxFit.cover,
+                        errorBuilder:
+                            (context, error, stackTrace) => Container(
+                              height: 240,
+                              color: Colors.grey[300],
+                              child: const Icon(
+                                Icons.wine_bar,
+                                size: 80,
+                                color: Colors.white54,
+                              ),
+                            ),
                       ),
-                    ),
-              ),
             ),
             Padding(
               padding: const EdgeInsets.all(24.0),

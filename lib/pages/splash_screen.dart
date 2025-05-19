@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 
-import 'package:wineline/navigation/bottom_navigation.dart';
 import 'package:wineline/pages/welcome_screen.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -39,7 +38,7 @@ class _SplashScreenState extends State<SplashScreen> {
               child: Image.asset(
                 height: height * 0.8,
                 width: width * 0.7,
-                'images/123.png', // Use your bottle image
+                'images/123.png',
                 fit: BoxFit.contain,
               ),
             ),

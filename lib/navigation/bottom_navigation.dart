@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:wineline/pages/add_bottle.dart';
-
 import 'package:wineline/pages/manager_page.dart';
 import 'package:wineline/pages/map_page.dart';
 import 'package:wineline/pages/recomendation_page.dart';

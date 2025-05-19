@@ -53,7 +53,7 @@ class _MapPageState extends State<MapPage> {
     Set<Marker> markers = {};
     Map<String, int> cityCounts = {};
     Map<String, int> cityIndex = {};
-    // Filter collections
+
     final filtered =
         _collections.where((item) {
           final typeMatch =
@@ -80,7 +80,7 @@ class _MapPageState extends State<MapPage> {
         int index = cityIndex[city] ?? 0;
         int total = cityCounts[city] ?? 1;
         double angle = (2 * pi * index) / total;
-        double offset = 0.01; // ~1km, adjust as needed
+        double offset = 0.01;
         double latOffset = cos(angle) * offset;
         double lngOffset = sin(angle) * offset;
         cityIndex[city] = index + 1;
@@ -193,152 +193,154 @@ class _MapPageState extends State<MapPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: [
-          // Orange header and search bar
-          Positioned(
-            top: 0,
-            left: 0,
-            right: 0,
-            child: Container(
-              decoration: const BoxDecoration(
-                color: Color(0xFFE86F1C),
-                borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(40),
-                  bottomRight: Radius.circular(40),
-                ),
-              ),
-              padding: const EdgeInsets.fromLTRB(16, 16, 16, 24),
-              child: Column(
+      body: SafeArea(
+        child: Stack(
+          children: [
+            Positioned.fill(
+              top: 0,
+              child: Stack(
                 children: [
-                  Container(
-                    height: 48,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(16),
-                    ),
-                    child: TextField(
-                      onChanged: _onSearchChanged,
-                      decoration: const InputDecoration(
-                        hintText: 'Search for a city',
-                        border: InputBorder.none,
-                        prefixIcon: Icon(Icons.search, color: Colors.grey),
-                        contentPadding: EdgeInsets.symmetric(vertical: 12),
+                  GoogleMap(
+                    mapType: MapType.normal,
+                    initialCameraPosition: _initialCamera,
+                    markers: _markers,
+                    onMapCreated: _onMapCreated,
+                    onTap: _onMapTap,
+                    padding: const EdgeInsets.only(top: 90, bottom: 180),
+                    zoomControlsEnabled: false,
+                  ),
+                  if (_markers.isEmpty)
+                    const Center(
+                      child: Text(
+                        'No match',
+                        style: TextStyle(
+                          color: Colors.black54,
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
-                  ),
                 ],
               ),
             ),
-          ),
-          // Google Map
-          Positioned.fill(
-            top: 90,
-            child: Stack(
-              children: [
-                GoogleMap(
-                  mapType: MapType.normal,
-                  initialCameraPosition: _initialCamera,
-                  markers: _markers,
-                  onMapCreated: _onMapCreated,
-                  onTap: _onMapTap,
-                  padding: const EdgeInsets.only(top: 90, bottom: 180),
-                  zoomControlsEnabled: false,
+            Positioned(
+              top: 0,
+              left: 0,
+              right: 0,
+              child: Container(
+                decoration: const BoxDecoration(
+                  color: Color(0xFFE86F1C),
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(40),
+                    bottomRight: Radius.circular(40),
+                  ),
                 ),
-                if (_markers.isEmpty)
-                  const Center(
-                    child: Text(
-                      'No match',
+                padding: const EdgeInsets.fromLTRB(16, 16, 16, 24),
+                child: Column(
+                  children: [
+                    Container(
+                      height: 48,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(16),
+                      ),
+                      child: TextField(
+                        onChanged: _onSearchChanged,
+                        decoration: const InputDecoration(
+                          hintText: 'Search for a city',
+                          border: InputBorder.none,
+                          prefixIcon: Icon(Icons.search, color: Colors.grey),
+                          contentPadding: EdgeInsets.symmetric(vertical: 12),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Positioned(
+              left: 0,
+              right: 0,
+              bottom: 0,
+              child: Container(
+                decoration: const BoxDecoration(
+                  color: Color(0xFFE86F1C),
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(40),
+                    topRight: Radius.circular(40),
+                  ),
+                ),
+                padding: const EdgeInsets.fromLTRB(24, 18, 24, 32),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text(
+                      'Type',
                       style: TextStyle(
-                        color: Colors.black54,
-                        fontSize: 22,
+                        color: Colors.white,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                  ),
-              ],
-            ),
-          ),
-          // Orange filter section at the bottom
-          Positioned(
-            left: 0,
-            right: 0,
-            bottom: 0,
-            child: Container(
-              decoration: const BoxDecoration(
-                color: Color(0xFFE86F1C),
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(40),
-                  topRight: Radius.circular(40),
+                    const SizedBox(height: 8),
+                    Row(
+                      children: [
+                        GestureDetector(
+                          onTap: () => _onTypeSelected('Bar'),
+                          child: _buildChip('Bar', _selectedType == 'Bar'),
+                        ),
+                        const SizedBox(width: 8),
+                        GestureDetector(
+                          onTap: () => _onTypeSelected('Cellar'),
+                          child: _buildChip(
+                            'Cellar',
+                            _selectedType == 'Cellar',
+                          ),
+                        ),
+                        const SizedBox(width: 8),
+                        GestureDetector(
+                          onTap: () => _onTypeSelected('Restaurant'),
+                          child: _buildChip(
+                            'Restaurant',
+                            _selectedType == 'Restaurant',
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 16),
+                    const Text(
+                      'Style',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(height: 8),
+                    Row(
+                      children: [
+                        GestureDetector(
+                          onTap: () => _onStyleSelected('Natural'),
+                          child: _buildChip(
+                            'Natural',
+                            _selectedStyle == 'Natural',
+                          ),
+                        ),
+                        const SizedBox(width: 8),
+                        GestureDetector(
+                          onTap: () => _onStyleSelected('Biodynamic'),
+                          child: _buildChip(
+                            'Biodynamic',
+                            _selectedStyle == 'Biodynamic',
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
               ),
-              padding: const EdgeInsets.fromLTRB(24, 18, 24, 32),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text(
-                    'Type',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  const SizedBox(height: 8),
-                  Row(
-                    children: [
-                      GestureDetector(
-                        onTap: () => _onTypeSelected('Bar'),
-                        child: _buildChip('Bar', _selectedType == 'Bar'),
-                      ),
-                      const SizedBox(width: 8),
-                      GestureDetector(
-                        onTap: () => _onTypeSelected('Cellar'),
-                        child: _buildChip('Cellar', _selectedType == 'Cellar'),
-                      ),
-                      const SizedBox(width: 8),
-                      GestureDetector(
-                        onTap: () => _onTypeSelected('Restaurant'),
-                        child: _buildChip(
-                          'Restaurant',
-                          _selectedType == 'Restaurant',
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 16),
-                  const Text(
-                    'Style',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  const SizedBox(height: 8),
-                  Row(
-                    children: [
-                      GestureDetector(
-                        onTap: () => _onStyleSelected('Natural'),
-                        child: _buildChip(
-                          'Natural',
-                          _selectedStyle == 'Natural',
-                        ),
-                      ),
-                      const SizedBox(width: 8),
-                      GestureDetector(
-                        onTap: () => _onStyleSelected('Biodynamic'),
-                        child: _buildChip(
-                          'Biodynamic',
-                          _selectedStyle == 'Biodynamic',
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

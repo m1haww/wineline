@@ -2,13 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:flutter/services.dart';
-import 'package:wineline/pages/add_bottle.dart';
 import 'package:wineline/pages/add_bottle2.dart';
 import 'package:wineline/pages/add_bottles_details.dart';
 import '../models/wine_bottle.dart';
 import 'package:provider/provider.dart';
 import '../providers/bottle_provider.dart';
-import 'add_bottle.dart';
+import 'dart:io';
 
 class ManagerPage extends StatefulWidget {
   const ManagerPage({super.key});
@@ -42,7 +41,6 @@ class _ManagerPageState extends State<ManagerPage> {
     }
   }
 
-  // Function to remove diacritics from a string
   String _normalize(String input) {
     return input
         .replaceAll(RegExp(r'[âǎáàäãåāăą]'), 'a')
@@ -206,28 +204,50 @@ class _ManagerPageState extends State<ManagerPage> {
                                   children: [
                                     ClipRRect(
                                       borderRadius: BorderRadius.circular(8),
-                                      child: Image.asset(
-                                        bottle.image,
-                                        width: 90,
-                                        height: 90,
-                                        fit: BoxFit.cover,
-                                        errorBuilder: (
-                                          context,
-                                          error,
-                                          stackTrace,
-                                        ) {
-                                          return Container(
-                                            width: 90,
-                                            height: 90,
-                                            color: Colors.grey[300],
-                                            child: const Icon(
-                                              Icons.wine_bar,
-                                              color: Colors.white54,
-                                              size: 40,
-                                            ),
-                                          );
-                                        },
-                                      ),
+                                      child:
+                                          bottle.isOwnBottle
+                                              ? Image.file(
+                                                File(bottle.image),
+                                                width: 90,
+                                                height: 90,
+                                                fit: BoxFit.cover,
+                                                errorBuilder:
+                                                    (
+                                                      context,
+                                                      error,
+                                                      stackTrace,
+                                                    ) => Container(
+                                                      width: 90,
+                                                      height: 90,
+                                                      color: Colors.grey[300],
+                                                      child: const Icon(
+                                                        Icons.wine_bar,
+                                                        size: 40,
+                                                        color: Colors.white54,
+                                                      ),
+                                                    ),
+                                              )
+                                              : Image.asset(
+                                                bottle.image,
+                                                width: 90,
+                                                height: 90,
+                                                fit: BoxFit.cover,
+                                                errorBuilder:
+                                                    (
+                                                      context,
+                                                      error,
+                                                      stackTrace,
+                                                    ) => Container(
+                                                      width: 90,
+                                                      height: 90,
+                                                      color: Colors.grey[300],
+                                                      child: const Icon(
+                                                        Icons.wine_bar,
+                                                        size: 40,
+                                                        color: Colors.white54,
+                                                      ),
+                                                    ),
+                                              ),
                                     ),
                                     const SizedBox(width: 16),
                                     Expanded(
@@ -289,8 +309,6 @@ class _ManagerPageState extends State<ManagerPage> {
                         },
                       ),
             ),
-
-            // Bottom action section
           ],
         ),
       ),

@@ -7,6 +7,7 @@ class WineBottle {
   final double price;
   final String description;
   final String image;
+  final bool isOwnBottle;
 
   WineBottle({
     required this.id,
@@ -17,6 +18,7 @@ class WineBottle {
     required this.price,
     required this.description,
     required this.image,
+    this.isOwnBottle = false,
   });
 
   factory WineBottle.fromJson(Map<String, dynamic> json) {
@@ -29,6 +31,7 @@ class WineBottle {
       price: json['price'].toDouble(),
       description: json['description'],
       image: json['image'],
+      isOwnBottle: json['isOwnBottle'] ?? false,
     );
   }
 
@@ -42,6 +45,7 @@ class WineBottle {
       'price': price,
       'description': description,
       'image': image,
+      'isOwnBottle': isOwnBottle,
     };
   }
 }

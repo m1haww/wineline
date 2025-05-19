@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import '../navigation/bottom_navigation.dart';
 
 class WelcomeScreen extends StatelessWidget {
@@ -17,13 +16,9 @@ class WelcomeScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                // Bottle image placeholder
                 SizedBox(
                   height: 180,
-                  child: Image.asset(
-                    'images/123.png', // Replace with your image
-                    fit: BoxFit.contain,
-                  ),
+                  child: Image.asset('images/123.png', fit: BoxFit.contain),
                 ),
                 const SizedBox(height: 40),
                 const Text(

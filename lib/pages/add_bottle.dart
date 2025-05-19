@@ -120,7 +120,6 @@ class _AddBottleState extends State<AddBottle> {
                 style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 24),
-              // Add Photo Button
               GestureDetector(
                 onTap: _pickImage,
                 child:
@@ -160,7 +159,6 @@ class _AddBottleState extends State<AddBottle> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    // Wine Name
                     const Text(
                       'Wine Name',
                       style: TextStyle(fontWeight: FontWeight.w500),
@@ -175,7 +173,6 @@ class _AddBottleState extends State<AddBottle> {
                               val == null || val.isEmpty ? 'Required' : null,
                     ),
                     const SizedBox(height: 18),
-                    // Wine Type
                     const Text(
                       'Wine Type',
                       style: TextStyle(fontWeight: FontWeight.w500),
@@ -253,23 +250,22 @@ class _AddBottleState extends State<AddBottle> {
                               fontWeight: FontWeight.bold,
                             ),
                           ),
-                          onPressed: () {
+                          onPressed: () async {
                             if (_formKey.currentState!.validate()) {
                               final newBottle = WineBottle(
                                 id: DateTime.now().millisecondsSinceEpoch,
                                 name: _nameController.text,
                                 type: _typeController.text,
-                                year:
-                                    int.tryParse(_vintageController.text) ?? 0,
+                                year: int.tryParse(_vintageController.text) ?? 0,
                                 region: _countryController.text,
                                 price: 0,
                                 description: '',
-                                image: _imagePath?.path ?? '',
+                                image: '',
                               );
-                              Provider.of<BottleProvider>(
+                              await Provider.of<BottleProvider>(
                                 context,
                                 listen: false,
-                              ).addBottle(newBottle);
+                              ).addBottle(newBottle, imageFile: _imagePath);
                               _showSuccessDialog();
                             } else {
                               ScaffoldMessenger.of(context).showSnackBar(
