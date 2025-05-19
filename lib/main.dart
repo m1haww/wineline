@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wineline/pages/info_page.dart';
 import 'pages/splash_screen.dart';
 import 'package:provider/provider.dart';
 import 'providers/bottle_provider.dart';
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: '/',
       debugShowCheckedModeBanner: false,
-      home: const SplashScreen(),
+      home: LoadingScreen(),
     );
   }
 }
