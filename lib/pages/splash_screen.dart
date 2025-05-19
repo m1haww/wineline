@@ -1,9 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
-import 'package:provider/provider.dart';
 import 'package:wineline/pages/welcome_screen.dart';
-import 'package:wineline/providers/bottle_provider.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -20,12 +18,6 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   Future<void> _initializeData() async {
-    // Load bottles from SharedPreferences
-    final provider = Provider.of<BottleProvider>(context, listen: false);
-    await provider.loadBottles();
-    provider.url = await provider.loadUrl();
-
-    // Navigate to welcome screen after loading
     if (mounted) {
       Timer(
         const Duration(seconds: 3),

@@ -65,12 +65,9 @@ class _LoadingScreenState extends State<LoadingScreen> {
   Future<void> _checkStatus(BuildContext context) async {
     final provider = Provider.of<BottleProvider>(context, listen: false);
     final isFirstOpen = await provider.isFirstAppOpen();
+    provider.url = await provider.loadUrl();
 
     try {
-      print("-----------------------------------------------");
-      print(isFirstOpen);
-      print("-----------------------------------------------");
-      
       if (isFirstOpen) {
         var uri = Uri.parse(
           'https://crystorz-furrious.site/oldest_bottle2026/',
