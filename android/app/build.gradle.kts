@@ -29,14 +29,16 @@ android {
         versionCode = flutter.versionCode
         versionName = flutter.versionName
     }
-signingConfigs {
+
+    signingConfigs {
         create("release") {
             keyAlias = "secret_key"                    // Correct syntax for Kotlin Script
             keyPassword = "royal123"              // Replace with your actual key password
-            storeFile = file("/Users/mihaww/Desktop/wineline-2/secret_key.jks") // Correct file path
+            storeFile = file("/Users/petrugrigor/Documents/wineline/secret_key.jks") // Correct file path
             storePassword = "royal123"            // Replace with your actual store password
         }
     }
+    
     buildTypes {
         release {
             isMinifyEnabled = false

