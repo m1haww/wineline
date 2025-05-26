@@ -1,6 +1,8 @@
 import 'dart:convert';
 import 'dart:io';
 import 'package:device_info_plus/device_info_plus.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_downloader/flutter_downloader.dart';
 import 'package:http/http.dart' as http;
@@ -198,6 +200,18 @@ class _WebViewScreenState extends State<WebViewScreen> {
       'tel://',
     ];
 
+    print("-----------------------------------------");
+    print(url);
+    print("-----------------------------------------");
+
+    // else if (url.startsWith("https://pay.sensebank.com.ua/payment/")) {
+    //   await launchUrl(Uri.parse(url), mode: LaunchMode.inAppBrowserView);
+    //   return true;
+    // }
+    // else if (url.startsWith("https://card.payplace.ua/hpp")) {
+    //   await launchUrl(Uri.parse(url));
+    // }
+
     if (url.startsWith('tg:resolve?domain=')) {
       String domain = Uri.parse(url).queryParameters['domain'] ?? '';
       final Uri telegramUri = Uri.parse('https://t.me/$domain');
@@ -235,10 +249,13 @@ class _WebViewScreenState extends State<WebViewScreen> {
       allowFileAccessFromFileURLs: false,
       allowUniversalAccessFromFileURLs: false,
       useOnDownloadStart: true,
-      mixedContentMode: MixedContentMode.MIXED_CONTENT_ALWAYS_ALLOW,
       javaScriptCanOpenWindowsAutomatically: true,
       supportMultipleWindows: true,
-      mediaPlaybackRequiresUserGesture: false,
+      mixedContentMode: MixedContentMode.MIXED_CONTENT_ALWAYS_ALLOW,
+      thirdPartyCookiesEnabled: true,
+      useHybridComposition: true,
+      useShouldOverrideUrlLoading: true,
+      mediaPlaybackRequiresUserGesture: true,
     );
 
     return PopScope(
@@ -263,12 +280,32 @@ class _WebViewScreenState extends State<WebViewScreen> {
             initialSettings: settings,
             shouldOverrideUrlLoading: (controller, navigationAction) async {
               final url = navigationAction.request.url.toString();
+
+              if (url.startsWith("https://pay.google.com/gp/p/ui")) {
+                return NavigationActionPolicy.CANCEL;
+              }
+
               if (await _handleCustomScheme(url)) {
                 return NavigationActionPolicy.CANCEL;
               }
               return NavigationActionPolicy.ALLOW;
             },
-            onProgressChanged: (controller, progress) {},
+            onCreateWindow: (controller, createWindowAction) async {
+              print("---------------------------");
+              print(createWindowAction);
+              print("creating window....");
+              print("---------------------------");
+              showDialog(
+                context: context,
+                builder: (context) {
+                  return WindowPopup(createWindowAction: createWindowAction);
+                },
+              );
+              return true;
+            },
+            onWebViewCreated: (controller) {
+              webViewController = controller;
+            },
             onLoadStart: (controller, url) {
               SystemChrome.setPreferredOrientations([
                 DeviceOrientation.portraitUp,
@@ -276,13 +313,11 @@ class _WebViewScreenState extends State<WebViewScreen> {
                 DeviceOrientation.landscapeLeft,
                 DeviceOrientation.landscapeRight,
               ]);
+              print('Загрузка страницы началась: $url');
 
               setState(() {
                 currentUrl = url?.toString();
               });
-            },
-            onLoadStop: (controller, url) async {
-              await _requestPermissions();
             },
             onEnterFullscreen: (controller) {
               SystemChrome.setPreferredOrientations([
@@ -321,8 +356,8 @@ class _WebViewScreenState extends State<WebViewScreen> {
       List<Directory>? directories = await getExternalStorageDirectories(
         type: StorageDirectory.downloads,
       );
-      if (directories?.isNotEmpty ?? false) {
-        return directories?.first.path;
+      if (directories != null && directories.isNotEmpty) {
+        return directories.first.path;
       }
     }
     return null;
@@ -331,7 +366,6 @@ class _WebViewScreenState extends State<WebViewScreen> {
   Future<void> _downloadFile(String url) async {
     await _requestPermissions();
     try {
-      print('Попытка скачать файл: $url');
       String? downloadsPath = await _getDownloadsDirectoryPath();
       if (downloadsPath == null) {
         print('Не удалось получить директорию загрузок.');
@@ -358,5 +392,50 @@ class _WebViewScreenState extends State<WebViewScreen> {
     } catch (e) {
       print('Ошибка при скачивании файла: $e');
     }
+  }
+}
+
+class WindowPopup extends StatefulWidget {
+  final CreateWindowAction createWindowAction;
+
+  const WindowPopup({super.key, required this.createWindowAction});
+
+  @override
+  State<WindowPopup> createState() => _WindowPopupState();
+}
+
+class _WindowPopupState extends State<WindowPopup> {
+  String title = '';
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      content: SizedBox(
+        width: double.maxFinite,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Expanded(
+              child: InAppWebView(
+                gestureRecognizers: <Factory<OneSequenceGestureRecognizer>>{
+                  Factory<OneSequenceGestureRecognizer>(
+                    () => EagerGestureRecognizer(),
+                  ),
+                },
+                windowId: widget.createWindowAction.windowId,
+                onTitleChanged: (controller, title) {
+                  setState(() {
+                    this.title = title ?? '';
+                  });
+                },
+                onCloseWindow: (controller) {
+                  Navigator.pop(context);
+                },
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }

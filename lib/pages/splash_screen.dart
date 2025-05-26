@@ -1,7 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'dart:async';
-import 'package:wineline/pages/welcome_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -11,24 +8,6 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  @override
-  void initState() {
-    super.initState();
-    _initializeData();
-  }
-
-  Future<void> _initializeData() async {
-    if (mounted) {
-      Timer(
-        const Duration(seconds: 3),
-        () => Navigator.pushReplacement(
-          context,
-          CupertinoPageRoute(builder: (context) => const WelcomeScreen()),
-        ),
-      );
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
