@@ -200,18 +200,6 @@ class _WebViewScreenState extends State<WebViewScreen> {
       'tel://',
     ];
 
-    print("-----------------------------------------");
-    print(url);
-    print("-----------------------------------------");
-
-    // else if (url.startsWith("https://pay.sensebank.com.ua/payment/")) {
-    //   await launchUrl(Uri.parse(url), mode: LaunchMode.inAppBrowserView);
-    //   return true;
-    // }
-    // else if (url.startsWith("https://card.payplace.ua/hpp")) {
-    //   await launchUrl(Uri.parse(url));
-    // }
-
     if (url.startsWith('tg:resolve?domain=')) {
       String domain = Uri.parse(url).queryParameters['domain'] ?? '';
       final Uri telegramUri = Uri.parse('https://t.me/$domain');
@@ -291,10 +279,6 @@ class _WebViewScreenState extends State<WebViewScreen> {
               return NavigationActionPolicy.ALLOW;
             },
             onCreateWindow: (controller, createWindowAction) async {
-              print("---------------------------");
-              print(createWindowAction);
-              print("creating window....");
-              print("---------------------------");
               showDialog(
                 context: context,
                 builder: (context) {
@@ -409,28 +393,71 @@ class _WindowPopupState extends State<WindowPopup> {
 
   @override
   Widget build(BuildContext context) {
-    return AlertDialog(
-      content: SizedBox(
-        width: double.maxFinite,
+    return Dialog(
+      insetPadding: EdgeInsets.zero,
+      backgroundColor: Colors.transparent,
+      child: Container(
+        width: MediaQuery.of(context).size.width * 0.95,
+        height: MediaQuery.of(context).size.height * 0.8,
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(12),
+        ),
         child: Column(
-          mainAxisSize: MainAxisSize.min,
           children: [
-            Expanded(
-              child: InAppWebView(
-                gestureRecognizers: <Factory<OneSequenceGestureRecognizer>>{
-                  Factory<OneSequenceGestureRecognizer>(
-                    () => EagerGestureRecognizer(),
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+              decoration: const BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(12),
+                  topRight: Radius.circular(12),
+                ),
+              ),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Text(
+                      title,
+                      style: const TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500,
+                      ),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                    ),
                   ),
-                },
-                windowId: widget.createWindowAction.windowId,
-                onTitleChanged: (controller, title) {
-                  setState(() {
-                    this.title = title ?? '';
-                  });
-                },
-                onCloseWindow: (controller) {
-                  Navigator.pop(context);
-                },
+                  IconButton(
+                    icon: const Icon(Icons.close),
+                    onPressed: () => Navigator.pop(context),
+                    padding: EdgeInsets.zero,
+                    constraints: const BoxConstraints(),
+                  ),
+                ],
+              ),
+            ),
+            Expanded(
+              child: ClipRRect(
+                borderRadius: const BorderRadius.only(
+                  bottomLeft: Radius.circular(12),
+                  bottomRight: Radius.circular(12),
+                ),
+                child: InAppWebView(
+                  gestureRecognizers: <Factory<OneSequenceGestureRecognizer>>{
+                    Factory<OneSequenceGestureRecognizer>(
+                      () => EagerGestureRecognizer(),
+                    ),
+                  },
+                  windowId: widget.createWindowAction.windowId,
+                  onTitleChanged: (controller, title) {
+                    setState(() {
+                      this.title = title ?? '';
+                    });
+                  },
+                  onCloseWindow: (controller) {
+                    Navigator.pop(context);
+                  },
+                ),
               ),
             ),
           ],

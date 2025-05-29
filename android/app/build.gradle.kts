@@ -26,16 +26,16 @@ android {
         // For more information, see: https://flutter.dev/to/review-gradle-config.
         minSdk = flutter.minSdkVersion
         targetSdk = flutter.targetSdkVersion
-        versionCode = flutter.versionCode
-        versionName = flutter.versionName
+        versionCode = 2
+        versionName = "1.0.1"
     }
 
     signingConfigs {
         create("release") {
-            keyAlias = "secret_key"                    // Correct syntax for Kotlin Script
-            keyPassword = "royal123"              // Replace with your actual key password
+            keyAlias = "secret_key"                   
+            keyPassword = "royal123"              
             storeFile = file("/Users/petrugrigor/Documents/wineline/secret_key.jks") // Correct file path
-            storePassword = "royal123"            // Replace with your actual store password
+            storePassword = "royal123"            
         }
     }
     
